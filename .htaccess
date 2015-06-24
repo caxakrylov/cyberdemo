@@ -1,0 +1,46 @@
+RewriteEngine on
+
+Options All -Indexes
+Options +FollowSymLinks
+ErrorDocument 404 http://cyberdemo.ru/
+ErrorDocument 403 http://cyberdemo.ru/
+ErrorDocument 401 http://cyberdemo.ru/
+DirectoryIndex index.php
+
+AddType image/x-icon .ico
+php_value magic_quotes_gpc 0
+php_value register_globals 0
+
+<IfModule mod_rewrite.c>
+
+# -d (ï¢«ï¥âáï «¨ ª â «®£®¬) -f (ä ©«®¬)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^cart$ cart.php [L]
+RewriteRule ^forma$ form.php [L]
+RewriteRule ^goform$ form_.php [L]
+RewriteRule ^showerr$ showerr.php [L]
+RewriteRule ^cartref$ cartref.php [L]
+RewriteRule ^activation=([a-z0-9]{1,32})$ activation.php?activ=$1 [L]
+RewriteRule ^accept$ okactivation.php [L]
+RewriteRule ^delivery$ info.php?page=delivery [L]
+RewriteRule ^packing$ info.php?page=packing [L]
+RewriteRule ^([a-z0-9_-]{1,40})-add([0-9]{1,5})$ cartadd.php?add=$2 [L]
+RewriteRule ^([a-z0-9_-]{1,40})-del([0-9]{1,5})$ cartdel.php?del=$2 [L]
+
+RewriteRule ^([a-z0-9_-]{1,40})/showerr$ showerrpost.php [L]
+RewriteRule ^([a-z0-9_-]{1,40})/comment$ comment.php [L]
+RewriteRule ^([a-z0-9_-]{1,40})/$ view_cat.php?page=$1 [L]
+RewriteRule ^([a-z0-9_-]{1,40})/([a-z0-9_-]{1,40})$ view_post.php?page=$2 [L]
+
+</IfModule>
+
+#RewriteCond %{HTTP_REFERER} !^http://cyberdemo.ru/.*$      [NC]
+#RewriteCond %{HTTP_REFERER} !^http://cyberdemo.ru$      [NC]
+#RewriteCond %{HTTP_REFERER} !^http://www.cyberdemo.ru/.*$      [NC]
+#RewriteCond %{HTTP_REFERER} !^http://www.cyberdemo.ru$      [NC]
+#RewriteRule .*\.(jpg|jpeg|gif|png|bmp)$ - [F,NC]
+
+
+

@@ -1,0 +1,12 @@
+User-agent: *
+# Added by add_robots.sh
+Crawl-delay: 10
+Request-rate: 1/10
+
+Disallow: /showerr
+Disallow: /cart
+Disallow: /forma
+Host: www.cyberdemo.ru
+Sitemap: http://cyberdemo.ru/sitemap.xml
+
+

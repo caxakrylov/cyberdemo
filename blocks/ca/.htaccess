@@ -1,0 +1,13 @@
+Options All -Indexes
+order deny,allow
+allow from all
+
+<Files kcaptcha_config.php>
+order allow,deny
+deny from all
+</Files>
+
+<Files kcaptcha.php>
+order allow,deny
+deny from all
+</Files>

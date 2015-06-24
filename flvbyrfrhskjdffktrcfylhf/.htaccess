@@ -1,0 +1,4 @@
+Options All -Indexes
+#order deny,allow
+#deny from all
+#allow from 188.128.47 95.167.80 95.167.81
